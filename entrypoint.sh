@@ -34,7 +34,7 @@ if [[ ! -e $pkgbuild_dir/.SRCINFO ]]; then
     exit 1
 fi
 
-getfacl -p -R "$pkgbuild_dir" /github/home > /tmp/arch-pkgbuild-builder-permissions.bak
+# getfacl -p -R "$pkgbuild_dir" /github/home > /tmp/arch-pkgbuild-builder-permissions.bak
 
 # '/github/workspace' is mounted as a volume and has owner set to root
 # set the owner of $pkgbuild_dir  to the 'build' user, so it can access package files.
