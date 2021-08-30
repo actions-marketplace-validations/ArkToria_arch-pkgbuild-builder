@@ -45,7 +45,7 @@ sudo chown -R build /github/home
 
 # use more reliable keyserver
 mkdir -p /github/home/.gnupg/
-echo "keyserver hkp://keyserver.ubuntu.com:80" | tee /github/home/.gnupg/gpg.conf
+echo "keyserver hkps://keyserver.ubuntu.com" | tee /github/home/.gnupg/gpg.conf
 
 cd "$pkgbuild_dir"
 
@@ -62,7 +62,7 @@ case $target in
     pkgbuild)
         namcap PKGBUILD
         install_deps
-        makepkg --syncdeps --noconfirm
+        makepkg --syncdeps --noconfirm --force
 
         # shellcheck disable=SC1091
         source /etc/makepkg.conf # get PKGEXT
