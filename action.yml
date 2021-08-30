@@ -1,4 +1,4 @@
-name: Build Arch Package
+name: ArkToria Build Arch Package
 description: Builds an validates PKGBUILD definition
 
 branding:
