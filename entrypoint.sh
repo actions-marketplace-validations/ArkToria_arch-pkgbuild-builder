@@ -38,10 +38,10 @@ getfacl -p -R "$pkgbuild_dir" /github/home > /tmp/arch-pkgbuild-builder-permissi
 
 # '/github/workspace' is mounted as a volume and has owner set to root
 # set the owner of $pkgbuild_dir  to the 'build' user, so it can access package files.
-sudo chown -R build "$pkgbuild_dir"
+# sudo chown -R build "$pkgbuild_dir"
 
 # needs permissions so '/github/home/.config/yay' is accessible by yay
-sudo chown -R build /github/home
+# sudo chown -R build /github/home
 
 # use more reliable keyserver
 mkdir -p /github/home/.gnupg/
@@ -76,4 +76,4 @@ case $target in
       echo "Target should be one of 'pkgbuild', 'srcinfo', 'run'" ;;
 esac
 
-sudo setfacl --restore=/tmp/arch-pkgbuild-builder-permissions.bak
+# sudo setfacl --restore=/tmp/arch-pkgbuild-builder-permissions.bak
