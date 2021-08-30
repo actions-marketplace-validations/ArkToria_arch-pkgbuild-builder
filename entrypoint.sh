@@ -51,17 +51,9 @@ cd "$pkgbuild_dir"
 
 pkgname=$(grep -E 'pkgname' .SRCINFO | sed -e 's/.*= //')
 
-install_deps() {
-    # install all package dependencies
-    grep -E 'depends' .SRCINFO | \
-        sed -e 's/.*depends = //' -e 's/:.*//' | \
-        xargs yay -Syu --noconfirm
-}
-
 case $target in
     pkgbuild)
         namcap PKGBUILD
-        install_deps
         makepkg --syncdeps --noconfirm --force
 
         # shellcheck disable=SC1091
